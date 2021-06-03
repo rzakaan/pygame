@@ -25,6 +25,14 @@ def main():
     particle_controller = ParticleController(515, 500, particle)
     particle_controller.set_game(pygame, screen)
 
+    p2 = Particle(Colors.RED, model=ParticleModel.SQUARE)
+    pc2 = ParticleController(100, 500, p2)
+    pc2.set_game(pygame, screen)
+
+    p3 = Particle(Colors.BLUE, model=ParticleModel.SQUARE)
+    pc3 = ParticleController(300, 500, p3)
+    pc3.set_game(pygame, screen)
+
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -34,9 +42,10 @@ def main():
                     running = False
 
         particle_controller.move()
+        pc2.move()
+        #pc3.move()
         pygame.display.flip()
         clock.tick(100)
-
 
     pygame.quit()
 
